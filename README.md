@@ -278,4 +278,4 @@ This frontend application communicates with the BiteFlow Spring Boot backend API
 Ruchira Sampath
 
 GitHub:
-https:/
+https://github.com/Ruchira19
