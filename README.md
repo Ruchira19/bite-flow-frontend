@@ -1,46 +1,281 @@
-# Getting Started with Create React App
+# BiteFlow Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+A comprehensive frontend web application for a food ordering platform built using React, TypeScript, React Router, Axios, and Tailwind CSS.
 
-In the project directory, you can run:
+This frontend provides secure authentication, role-based authorization, food browsing, shopping cart management, order tracking, payment workflows, admin management dashboards, and responsive navigation for a complete food ordering experience.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Authentication & Security
 
-### `npm test`
+- JWT-based authentication integration
+- Persistent login using localStorage
+- Role-based route protection
+- Protected customer and admin pages
+- Axios interceptor for automatic token attachment
+- Secure logout handling
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## User Management
 
-### `npm run build`
+- User registration and login
+- Authentication state management
+- Profile-based navigation rendering
+- Admin user management interface
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Food & Category Management
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Food catalog browsing
+- Food search functionality
+- Category-based filtering
+- Food item management for admins
+- Category management for admins
+- Real-time inventory visibility
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Shopping Cart
 
-### `npm run eject`
+- Add items to cart
+- Update cart quantities
+- Remove cart items
+- Clear shopping cart
+- Live cart synchronization
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Order Management
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Place food orders
+- View customer order history
+- Cancel customer orders
+- Order status tracking
+- Admin order management
+- Payment completion workflow
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Payment Management
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Payment status tracking
+- Transaction reference submission
+- Payment monitoring dashboard
+- Order-payment synchronization
 
-## Learn More
+## Dashboard & Navigation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Customer dashboard
+- Admin dashboard
+- Inventory overview
+- Income summaries
+- Responsive navigation menu
+- Mobile-friendly layout
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Frontend Architecture Layers
+
+- auth - Authentication and authorization handling
+- admin - Admin management pages
+- cart - Shopping cart management
+- dashboard - Dashboard and analytics pages
+- food - Food catalog management
+- nav - Navigation components
+- order - Order and payment management
+- service - API communication layer
+- util - Reusable utility components
+- model - Shared TypeScript interfaces and types
+
+
+# Main Pages
+
+## Public Pages
+
+- Login Page
+- Signup Page
+
+## Customer Pages
+
+- Home Dashboard
+- Food Catalog
+- Shopping Cart
+- Orders Page
+
+## Admin Pages
+
+- Categories Management
+- Foods Management
+- Orders Management
+- Payments Management
+- Users Management
+
+
+---
+
+# Routing Structure
+
+## Public Routes
+
+- `/login`
+- `/signup`
+
+## Customer Routes
+
+- `/home`
+- `/foods`
+- `/cart`
+- `/orders`
+
+## Admin Routes
+
+- `/admin/categories`
+- `/admin/foods`
+- `/admin/orders`
+- `/admin/payments`
+- `/admin/users`
+
+---
+
+# Authentication Flow
+
+- User logs in or signs up
+- Backend returns JWT token
+- Token is stored in localStorage
+- Axios interceptor attaches token to API requests
+- Protected routes validate authentication and roles
+- Unauthorized users are redirected automatically
+
+---
+
+# API Communication
+
+## Main Service Modules
+
+- AuthService.ts
+- CartService.ts
+- CatalogService.ts
+- OrderService.ts
+- AdminService.ts
+
+## Axios Features
+
+- Shared Axios instance
+- Automatic JWT token injection
+- Centralized error handling
+- API base URL configuration
+
+---
+
+
+---
+
+# Environment Configuration
+
+Changes the below in api.ts in src/service.
+
+```Local Host
+REACT_APP_API_BASE_URL=http://localhost:8080/api/v1
+```
+
+Production:
+
+```env
+REACT_APP_API_BASE_URL=https://your-production-url/api/v1/
+```
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+---
+
+## Navigate to Project
+
+```bash
+cd biteflow-frontend
+```
+
+---
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+# Running the Application
+
+## Start Development Server
+
+```bash
+npm start
+```
+Application runs on:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# Technology Stack
+
+| Technology | Purpose |
+|---|---|
+| React | Frontend Framework |
+| TypeScript | Type Safety |
+| React Router | Client-Side Routing |
+| Axios | API Communication |
+| Tailwind CSS | UI Styling |
+| Heroicons | Icons |
+| Context API | State Management |
+| JWT | Authentication |
+
+---
+
+---
+
+# Security Features
+
+- JWT token authentication
+- Protected routes
+- Role-based authorization
+- Axios request interceptor
+- Persistent login sessions
+- Automatic unauthorized redirects
+
+---
+
+# Business Rules
+
+- Only authenticated users can access protected routes
+- Customers can only access customer pages
+- Admins can only access admin pages
+- Payments require transaction references
+- Empty carts cannot place orders
+- Out-of-stock items cannot be added beyond available quantity
+
+---
+
+# Backend Integration
+
+This frontend application communicates with the BiteFlow Spring Boot backend API for:
+
+- Authentication
+- Food management
+- Cart operations
+- Order processing
+- Payment management
+- User management
+
+---
+
+# Author
+
+Ruchira Sampath
+
+GitHub:
+https:/
